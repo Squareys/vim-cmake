@@ -68,6 +68,15 @@ function! s:find_build_dir()
     return 1
   endif
 
+  if exists("g:cmake_build_dir_override")
+    if exists("*mkdir")
+      call mkdir(g:cmake_build_dir_override, "p", 0700)
+    endif
+    let b:build_dir = g:cmake_build_dir_override
+    let b:proj_dir = fnamemodify(b:build_dir, ':h')
+    return 1
+  endif
+
   let g:cmake_build_dir = get(g:, 'cmake_build_dir', 'build')
   let b:build_dir = s:search_upward_for(g:cmake_build_dir, "")
 
@@ -227,3 +236,4 @@ function! s:cd_make(...)
   exec 'make '. join(a:000)
   exec 'cd -'
 endfunction
+" vim: set tabstop=2 softtabstop=0 expandtab shiftwidth=2:

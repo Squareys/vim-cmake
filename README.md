@@ -40,6 +40,7 @@ Finally, this command sets `makeprg` to (effectively) `cmake --build <build-dir>
 
  * `b:build_dir` is the path to the cmake build directory for the current buffer. This variable is set with the first :CMake or :CMakeFindBuildDir call. Once found, it will not be searched for again unless you call :CMakeFindBuildDir. If automatic finding is not sufficient you can set this variable manually to the build dir of your choice.
 
+ * `g:cmake_build_dir_override` can be used to override the complete build directory path.  If the directory does not exist and `mkdir()` is supported it will be automatically created.
 
 ## Installation
 

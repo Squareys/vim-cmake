@@ -38,9 +38,11 @@ Finally, this command sets `makeprg` to (effectively) `cmake --build <build-dir>
 
  * `g:cmake_ycm_symlinks` create symlinks to the generated compilation database for use with [YouCompleteMe](https://github.com/Valloric/YouCompleteMe/).
 
+ * `g:cmake_build_dir` set the cmake 'build' directory, default: 'build'
+
  * `b:build_dir` is the path to the cmake build directory for the current buffer. This variable is set with the first :CMake or :CMakeFindBuildDir call. Once found, it will not be searched for again unless you call :CMakeFindBuildDir. If automatic finding is not sufficient you can set this variable manually to the build dir of your choice.
 
- * `g:cmake_build_dir_override` can be used to override the complete build directory path.  If the directory does not exist and `mkdir()` is supported it will be automatically created.
+ * `g:cmake_build_dir_override` can be used to override the build directory path. If the directory does not exist and `mkdir()` is supported it will be automatically created. This will prevent the search for `g:cmake_build_dir`.
 
 ## Installation
 
@@ -95,6 +97,7 @@ For test file syntax highlighting, add vader.vim as a plugin to your .vimrc.
     * @Squareys for a small overhaul of the project, the initial test and travis setup.
     * @darth for fixing passing arguments to CMake command.
     * @richteraj for the initial support for opening configure errors during `:CMake` in the quickfix list.
+    * @pchynoweth for `g:cmake_build_dir_override`.
 
 ## License
 

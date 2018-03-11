@@ -98,3 +98,12 @@ Expect:
 
   Hello World
   Bye World
+
+Execute (Override build directory):
+  cd test\ project/tmp-build
+  let g:cmake_build_dir_override="./a-build-dir"
+  e ../CMakeLists.txt
+  CMakeFindBuildDir
+  Assert exists("b:build_dir"), "CMake build dir should be set"
+  Assert b:build_dir == g:cmake_build_dir_override, "g:cmake_build_dir_override should override build dir"
+  Assert isdirectory("./a-build-dir"), "Build directory should have been created"

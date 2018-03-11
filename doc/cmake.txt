@@ -62,3 +62,9 @@ g:cmake_export_compile_commands  same as -DCMAKE_EXPORT_COMPILE_COMMANDS=ON, use
 
 g:cmake_ycm_symlinks             create a symlink to the compile_commands.json file in the
                                  root of the project (build/..) if the file is found.
+
+g:cmake_build_dir_override       can be used to override the build directory path.
+                                 If the directory does not exist and `mkdir()` is supported
+                                 it will be automatically created.
+                                 This will prevent the search for `g:cmake_build_dir`.
+
